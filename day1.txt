@@ -1,0 +1,9 @@
+at() vs charAt()==> there is a differnce b/w charAt and at() method is{
+    both return character of strings but charAt only gives psoitive values and at() methdo can also handel negative values
+    for eg// console.log("hello".at(-4)) // e
+    for eg// console.log("hello".charAt(-4)) // empty string or undefined
+}
+==> match() methdo gives array after check for regex for eg. "Hello world".match(/^[a-zA-Z]+$
+/) // false 
+
+==>
