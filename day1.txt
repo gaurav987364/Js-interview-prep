@@ -6,4 +6,11 @@ at() vs charAt()==> there is a differnce b/w charAt and at() method is{
 ==> match() methdo gives array after check for regex for eg. "Hello world".match(/^[a-zA-Z]+$
 /) // false 
 
-==>
+==> truthy and falsy 
+o,null, undefined, -0, NaN, empty string "",
+are only falsy values in js ok
+
+==> Boolean() function se ham kisi bhi Actually, every single value in JavaScript can be transformed to a boolean value.
+==> Waht is the diff. b/w == and === in js?
+ans=> == is called the loose equality operator and === is strict equality operator.
+== compare only values on both side where === compare value as weel as type both side
