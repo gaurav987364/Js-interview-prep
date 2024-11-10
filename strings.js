@@ -1,0 +1,1 @@
+console.log("hi" + " " + "ok") // just concat with + and seprate strings witth space
