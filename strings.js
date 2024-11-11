@@ -11,7 +11,6 @@ console.log(bio.split("-"))  // based on - give one long senetence in array of s
 console.log(bio.charAt(10)) // e
 console.log(bio.at(-5)) // a
 console.log(bio.substring(4,15)) // my name is // return only substring lies b/w start and end point
-
 // question based on strings
 
 //? sliding window based (o)n time complexity 
@@ -21,36 +20,136 @@ console.log(bio.substring(4,15)) // my name is // return only substring lies b/w
 // map() ke has and get method uses => has() method return boolean indicating whether an element with the specified key exists or not. and get() method give that value related to that key
 
 //! basiclaly ek esa function banana hai jo simpley str ko le rha hai or sirf lenght uski count hogi mtlb vo ek esa sequence jisme na word repaet hoga na koi space repaett hoga only pure words so sabsbe lamba sequence hi maxlenght of substring hoga
-function getlongestChar(str) {
-   let n = str.length; // getting length of string for iteration
-   let maxLength = 0; // max lenght of string after looping 
-   let start = 0; // it is our start window after every charecter
-   let charIndexMap = new Map(); // map for stroing index of charctr;
-   let maxSubStrings = ""; // getting alll sustring for better understanding
+// function getlongestChar(str) {
+//    let n = str.length; // getting length of string for iteration
+//    let maxLength = 0; // max lenght of string after looping 
+//    let start = 0; // it is our start window after every charecter
+//    let charIndexMap = new Map(); // map for stroing index of charctr;
+//    let maxSubStrings = ""; // getting alll sustring for better understanding
 
-   for(let end=0; end< n; end++){
-    let charStoreing = str[end];
+//    for(let end=0; end< n; end++){
+//     let charStoreing = str[end];
 
-    // check for repeat charcters
-    if(charIndexMap.has(charStoreing) && charIndexMap.get(charStoreing) >= start){
-        start = charIndexMap.get(charStoreing) + 1; // if repeating then start from next of repeating character
-    }
+//     // check for repeat charcters
+//     if(charIndexMap.has(charStoreing) && charIndexMap.get(charStoreing) >= start){
+//         start = charIndexMap.get(charStoreing) + 1; // if repeating then start from next of repeating character
+//     }
 
-    //update the map container for charecter index's
-    charIndexMap.set(charStoreing, end);
+//     //update the map container for charecter index's
+//     charIndexMap.set(charStoreing, end);
 
-    //claculate max substrings
-    let currentLength = end - start + 1;
-    if(currentLength > maxLength){
-        maxLength = currentLength;
-        maxSubStrings = str.substring(start, end + 1);
-        console.log(maxSubStrings);
-    }
-   }
-   console.log(maxSubStrings)
-   return maxLength;
+//     //claculate max substrings
+//     let currentLength = end - start + 1;
+//     if(currentLength > maxLength){
+//         maxLength = currentLength;
+//         maxSubStrings = str.substring(start, end + 1);
+//         console.log(maxSubStrings);
+//     }
+//    }
+//    console.log(maxSubStrings)
+//    return maxLength;
+// }
+
+// function lengthOfLongestSubstring(str) {
+//     let maxLength = 0;
+//     let currentSubstring = "";
+
+//     for (const char of str) {
+//         const index = currentSubstring.indexOf(char);
+//         if (index !== -1) {
+//             currentSubstring = currentSubstring.slice(index + 1);
+//         }
+//         currentSubstring += char;
+//         maxLength = Math.max(maxLength, currentSubstring.length);
+//     }
+
+//     return maxLength;
+// }
+
+// // Test
+// console.log(lengthOfLongestSubstring("abcabcbb")); // Output: 3
+
+//q reverse the string 
+// function reverseSTR(str){
+//     let reverseStR = "";
+//     for(let i = str.length - 1; i>=0; i--){
+//         reverseStR += str[i]
+//     }
+//     return reverseStR;
+// }
+// console.log(reverseSTR('hello'))
+
+
+//q2 check if strings is palindrome or not
+// function isPalindrome(str) {
+//     const cleanStr = str.toLowerCase().replace(/[^a-z0-9]/g, ''); // remove non-alphanumeric chars
+//     let left = 0;
+//     let right = cleanStr.length - 1;
+//     while (left < right) {
+//       if (cleanStr[left] !== cleanStr[right]) return false;
+//       left++;
+//       right--;
+//     }
+//     return true;
+// }
+//console.log(isPalindrome('A man, a plan, a canal: Panama')); // true
+
+//q otp generator function?
+// function otp(lenght = 6){
+//     let otp = "";
+//     let characters = "0123456789abcdefghijklmnop@#$%&*"; 
+//     for(let i = 0; i<lenght; i++){
+//         otp += characters.charAt(Math.floor(Math.random() * characters.length))
+//     }
+//     return otp;  // return otp string 6 length long 0-9,a-z,A-Z,special characters  @#$%&*  // 0-9,a-z,A-Z,special characters  @#$%&*  // 0-9,a-z,A-Z,special characters  @#$%&*  // 0-9,a-z,A-Z,special characters
+// }
+// console.log(otp())
+
+
+
+//Write a function that finds and returns the first character that does not repeat in a given string. If all characters repeat, return null.
+// function findfirstCharc(str){
+//     let firstChar = "";
+//     for(let i =0; i<str.length; i++){
+//         if(str.indexOf(str[i]) === str.lastIndexOf(str[i])){
+//             firstChar = str[i];
+//             break;
+//         }
+//     }
+//     return firstChar === ""? null : firstChar;
+// }
+// console.log(findfirstCharc('swiss'))
+
+//q find vowels in a string and return count of them?
+// function countVowels(str){
+//     let vowel = str.match(/[aeiou]/gi);
+//     return vowel ? vowel.length : 0;
+// }
+// console.log(countVowels('gaurav'))
+
+
+
+//q check anagrams means hm 2 string as argument lenge or check krege dono ke characters same hai dono words me to return true else false ;
+function anagram(str1,str2){
+    let cleanStr = (str) => str.toLowerCase().split("").sort().join("");
+    return cleanStr(str1) === cleanStr(str2)
 }
-console.log(getlongestChar("abcd efgh ijkl mnop qrst uvwx yz"));
+console.log(anagram("lust", "slut"))
+6
+// function sum(sum1, sum2){
+//     "use strict" //? we dont overwirte a arguments value now.
+//      sum1 = 5;
+//      sum2 = 5;
+//     return arguments[0] + arguments[1]
+// }
+
+// console.log(sum(10,10))
+
+
+
+
+
+
 
 
 
