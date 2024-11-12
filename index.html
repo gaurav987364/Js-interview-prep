@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #badepapa {
+        background-color: red;
+        border: 1px solid black;
+        padding: 10px;
+      }
+      #papa {
+        background-color: yellow;
+        border: 1px solid black;
+        padding: 10px;
+      }
+      #child {
+        background-color: blue;
+        border: 1px solid black;
+        padding: 10px;
+      }
+      #badepapa,
+      #papa,
+      #child {
+        margin-bottom: 10px;
+      }
+      #child {
+        font-size: 20px;
+      }
+      #papa:hover {
+        background-color: green;
+      }
+      #child:hover {
+        background-color: orange;
+      }
+      #badepapa:hover #papa {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div id="badepapa">
+        grandparent.
+        <div id="papa">
+          papa.
+          <div id="child">beta</div>
+        </div>
+      </div>
+    </div>
+
+    <ul id="parentList">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <script>
+      let badepapa = document.getElementById("badepapa");
+      let papa = document.getElementById("papa");
+      let child = document.getElementById("child");
+
+      badepapa.addEventListener("click", function (e) {
+        console.log("grandparent clicked");
+      });
+      papa.addEventListener("click", function (e) {
+        console.log("papa clicked");
+      });
+      child.addEventListener(
+        "click",
+        function (e) {
+          console.log("beta clicked");
+        },
+        true
+      );
+
+      // event delegation parent par click se child par action perform karwana
+      document
+        .getElementById("parentList")
+        .addEventListener("click", function (event) {
+          if (event.target && event.target.nodeName === "LI") {
+            console.log("List item clicked: " + event.target.textContent);
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -12,6 +12,10 @@ console.log(bio.charAt(10)) // e
 console.log(bio.at(-5)) // a
 console.log(bio.substring(4,15)) // my name is // return only substring lies b/w start and end point
 // question based on strings
+let text = "Please locate where 'locate' occurs!";
+let index0 = text.lastIndexOf("locate"); //21
+let index = text.indexOf("locate"); //7
+console.log(index)
 
 //? sliding window based (o)n time complexity 
 // Write a function that takes a string as an argument and returns the length of the longest substring without repeating characters.
@@ -135,7 +139,7 @@ function anagram(str1,str2){
     return cleanStr(str1) === cleanStr(str2)
 }
 console.log(anagram("lust", "slut"))
-6
+
 // function sum(sum1, sum2){
 //     "use strict" //? we dont overwirte a arguments value now.
 //      sum1 = 5;
