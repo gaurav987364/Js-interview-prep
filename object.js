@@ -87,6 +87,18 @@ function Obj(name,age,sex,){
 const p1 = new Obj('rohan',21,'male')
 console.log(p1);
 
+//  prevent user to modidfy some field only
+let myObject = {
+    name: "Gaurav",
+    pancardNumber: "PNR001DC02",
+    age: 23,
+    bio: "A normal guy with extra inches",
+};
+    
+Object.defineProperty(myObject, 'pancardNumber', {
+value: myObject.pancardNumber,
+writable: false,
+});
 
 //class constructor
 class CreateObj {
