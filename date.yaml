@@ -1,0 +1,102 @@
+*by default when we render an date obj. in html it will render as string in the html using toString() methods;
+
+
+*toString()
+*toDateString() // it will give us date in more readable formate
+
+//when we get date with these two types directly
+// Date()
+// 'Sat Nov 16 2024 12:18:20 GMT+0530 (India Standard Time)'
+// Date.now()
+// 1731739720063
+
+
+// as we know  months start from  jan-dec ::::
+but in JS IT CONSIDER THE JANUARY AS INDEX = 0
+AND DECEMBER = 11 
+SO 0-11 = JAN-DEC
+when we log or get date from methods like toString, toDateString, and toLocalDateString, toLocalString it will give us the exact month number like for november = 11,,,,
+but but but
+when we log the month using getMothds like date.getMonth() it will give 10 = november so dot confuse ok
+
+date.getDay() // gives us the day of the week
+
+
+
+thngs to remember when work with js dates
+
+speacially index value o smjaho 
+
+getHours()	Gets the hour (0–23).	6
+getMinutes()	Gets the minutes (0–59).	15
+getSeconds()	Gets the seconds (0–59).	29
+getMilliseconds()	Gets the milliseconds (0–999).	297
+getTime()	Gets the timestamp (milliseconds since Jan 1, 1970).
+
+
+// hamaesha format yaad rakho when hme 2 date given hai or hme countdown timer ya total time nikalna hai in format of day, hour, send and millisend so
+
+(1000*60*60*24) for day it return 86,40,0000 millisecnodns which are equal to one day
+(1000*60*60) for hours
+ (1000*60) for minutes
+ (1000) for seconds
+
+// hame 2 date given hai
+start = today
+end = tomorow kal ki
+ To phle diff nikal lege
+ () 
+ diff = end - start; // ye miliseconds honge always
+ sec = diif / 1000;
+ min = sec / 60;
+ hour = min / 60;
+ day = hour / 24;
+
+
+ ( )
+ diff = end - start lenge;
+ day = math.floor(diff / (1000*60*60*24))
+ hours = math.floor(diff % (1000*60*60*24) / (1000*60*60))
+ minutes = math.floor(diff % (1000*60*60) / (1000*60))
+ sec = math.floor(diff % (1000*60) / 1000)
+
+
+
+stop watch logic;;
+let start = null;
+let elapsedTime = 0;
+let intervaltime = null;
+
+function update(){
+let now = new Date.now() // 1644363638 format;
+let diff = elapsedTime + (now - start);
+
+let ms = diff / 1000;
+let seonds = Math.floor(diff / 1000) % 60;
+let minute = Math.floor(diff / 100*60) % 60;
+let hour = Math.floor(diff / 1000*60*60);
+
+time.textContent = `${String(hour).padStart(2,'0')}:....`
+}
+
+start.addEvntListner('clcik', ()=>{
+if(!start){
+start = new Date.now();
+intervalTime = setInterval(update, 10)
+}
+})
+
+stop.addEventListener('click', ()=>{
+if(start){
+clearInterval(intervaltime);
+start = null;
+elapsedTime += Date.now() - start;
+}
+}
+
+reset.addEvtlis(click, ()=>{
+ start = null;
+ elapsedTime = 0;
+ time.textContent = '00:00:00:00
+ clearInterval(intervalTime);
+})

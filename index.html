@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -84,4 +84,82 @@
         });
     </script>
   </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #time {
+      font-size: 48px;
+      margin: 20px 0;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Stopwatch</h1>
+  <div id="time">00:00:00.000</div>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <button id="reset">Reset</button>
+
+  <script>
+    let startTime = null;
+    let elapsedTime = 0;
+    let timerInterval = null;
+
+    const timeDisplay = document.getElementById('time');
+    const startButton = document.getElementById('start');
+    const stopButton = document.getElementById('stop');
+    const resetButton = document.getElementById('reset');
+
+    function updateTime() {
+      const now = Date.now();
+      const diff = elapsedTime + (now - startTime);
+      const ms = diff % 1000;
+      const seconds = Math.floor(diff / 1000) % 60;
+      const minutes = Math.floor(diff / (1000 * 60)) % 60;
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+
+      timeDisplay.textContent = 
+        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${String(ms).padStart(3, '0')}`;
+    }
+
+    startButton.addEventListener('click', () => {
+      if (!startTime) {
+        startTime = Date.now();
+        timerInterval = setInterval(updateTime, 10);
+      }
+    });
+
+    stopButton.addEventListener('click', () => {
+      if (startTime) {
+        elapsedTime += Date.now() - startTime;
+        startTime = null;
+        clearInterval(timerInterval);
+      }
+    });
+
+    resetButton.addEventListener('click', () => {
+      startTime = null;
+      elapsedTime = 0;
+      clearInterval(timerInterval);
+      timeDisplay.textContent = "00:00:00.000";
+    });
+  </script>
+</body>
 </html>
