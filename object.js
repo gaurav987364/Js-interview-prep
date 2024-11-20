@@ -204,3 +204,15 @@ console.log(newObj2);
 // search method
 let str = "hi there you are good";
 console.log(str.search("are")) // 13 basiclay search index and if not exixts retrun -1 like index of and lastindexof
+
+
+const obj = {
+    name: "John",
+    age: 25,
+    city: "New York"
+}
+console.log(JSON.parse(JSON.stringify(obj))); // this deep copy 
+// shawlow copy is just taking refrences
+
+obj.name = "harry"
+console.log(obj);
