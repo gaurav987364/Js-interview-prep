@@ -270,7 +270,7 @@ function uniqueChar(str){
 }
 console.log(uniqueChar("hello")) // hleo
 
-//?reduce()
+//?reduce() //
 
-const redArray = [20,30,40,50];
+const redArray = [20,30,40,50,60];
 console.log(redArray.reduce((acc, cur)=> acc + cur,0))
