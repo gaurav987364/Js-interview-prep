@@ -300,3 +300,115 @@ bar();
 
 //call stack works on LIFO(last in first out principal)
 //? jo phle aya bo last me jayga or last wala sabse phle jayga
+
+//? Web APIs:
+
+// Browser provide karta hai Web APIs jaise setTimeout, DOM events, fetch, etc., jo asynchronously kaam karte hain.
+
+//? Task Queue (Callback Queue):
+
+// Jab Web API ka asynchronous operation complete hota hai, uska callback function Task Queue mein push hota hai.
+
+//? Event Loop:
+
+// Event Loop continuously monitor karta hai Call Stack aur Task Queue ko. Agar Call Stack empty hota hai, to Event Loop Task Queue se callback function ko uthakar Call Stack mein push karta hai.
+
+//! pattern hai 
+// 1.Call stack (code runs line by line)
+// 2.web api (setTimeout, dom Event, fetch),
+// 3.Task Queue (callback function of web api ko push kiya jata hai),
+// 4.Event Loop (call stack empty hota hai, task queue mein callback function ko uthakar call stack mein push kar sakta hai).
+
+//! Advanced things more 
+
+//? Microtask Queue vs Macrotasks Queue in js;
+
+//* MacroTask are the list of independent task in js. In the macrotask the code runs synchronously and line by line//* setTimeout, setInterval, setImmediate
+
+//* Microtask are the minor tasks that update the state of the application and DOM etc. // for eg. Promises, async/await , fetch etc;
+//! micortask has more priority than the js event loop task queue and macrotasks;
+console.log('Start');
+setTimeout(() => console.log('Timeout'), 0);
+Promise.resolve().then(() => console.log('Promise'));
+console.log('End');
+
+//start, end, Promise, Timeout
+
+
+//Guess the ouput
+console.log('A');
+setTimeout(() => console.log('B'), 0);
+console.log('C');
+Promise.resolve().then(() => console.log('D'));
+console.log('E');
+// A
+// C
+// E
+// D
+// B
+
+
+//Guess output
+setTimeout(()=>{console.log(1)},0);
+Promise.resolve().then(()=> console.log(2));
+Promise.resolve().then(()=>{
+    console.log(3);
+    setTimeout(()=>{console.log(4)},0);
+});
+console.log(5);
+
+// 5,2,3,1,4;
+
+
+
+setTimeout(() => {
+    console.log('setTimeout 1');
+}, 0);
+
+setTimeout(() => {
+    console.log('setTimeout 2');
+}, 0);
+
+Promise.resolve().then(() => {
+    console.log('promise 1');
+});
+
+Promise.resolve().then(() => {
+    console.log('promise 2');
+});
+// promise 1
+// promise 2
+// setTimeout 1
+// setTimeout 2
+
+
+
+//async / await build on top of Promises so that behind the scenes they use callbacks so that they are assign as micortasks 
+//? in the differnce b/w who run fast and immidialtly
+console.log("Start");
+
+setTimeout(() => {
+    console.log("setTimeout");
+}, 0);
+
+Promise.resolve().then(() => {
+    console.log("Promise");
+});
+
+async function testAsync() {
+    await Promise.resolve();
+    console.log("Async/Await");
+}
+testAsync();
+console.log("End");
+
+//! explanation ye rha kon fast chalta hai 
+// console.log("Start") executes immediately.
+
+// console.log("End") executes immediately after console.log("Start").
+
+// Promise then callback runs after the synchronous code.
+
+// Async/Await logs "Async/Await" after the Promise callback.
+
+// setTimeout callback runs last as it is a macrotask.

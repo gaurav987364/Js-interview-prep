@@ -274,3 +274,47 @@ console.log(uniqueChar("hello")) // hleo
 
 const redArray = [20,30,40,50,60];
 console.log(redArray.reduce((acc, cur)=> acc + cur,0))
+
+
+
+// some talk about find, some, every method
+
+//?some()
+// Array.prototype.some()
+// Purpose: Checks if at least one element in the array passes the test implemented by the provided function.
+
+// Returns: true if at least one element passes the test; otherwise, false.
+//const numbers = [1, 2, 3, 4, 5];
+
+const hasEvenNumber = numbers.some(num => num % 2 === 0);
+
+console.log(hasEvenNumber); // Output: true (because 2 and 4 are even numbers)
+
+
+//?find()
+//* jis position ya elemnt pe test pass hua uske badd ka sirf ek bnda return krdega sabko nahi ok, or aagar test pass nhi hua to simple u defined dedega
+const Peoples = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 35 }
+];
+
+const user = Peoples.find(user => user.age > 30);
+
+console.log(user); // Output: { name: 'Charlie', age: 35 }
+
+
+//? Every()
+// Purpose: Checks if all elements in the array pass the test implemented by the provided function.
+
+// Returns: true if all elements pass the test; otherwise, false.
+
+
+//! some vs every => SOME CHECK KREGA SAB KE UPAR ITERATE KREGA OR AGAR EK BNDA BHI TEST BY CALLBACK FUNCTION  KO PASS KIYA TO TRU DEDEGA SABKE LIYE OK NAHI TO FALSE::  OR OR OR EVERY ISKA ULTA HAI ARRAY ME SABKO TEST PASS KRNA HOGA AGAR EK BHI FAIL HUA TO SIMPLE SAB FAIL HOGE OR OUTPUT IS FALSE
+
+
+const scores = [70, 85, 90, 100];
+
+const allPassing = scores.every(score => score >= 50);
+
+console.log(allPassing); // Output: true (because all scores are 50 or above)
