@@ -39,3 +39,15 @@ function getFirst3Char(arr) {
 }
 //console.log(getFirst3Char([1,2,3,4,5,6,]))
 console.log(getFirst3Char(["hi", "ok", "hello", "op", " og"]));
+
+
+
+// gesuss the ouput
+let count = 10;
+function updateCount() {
+    let count = 5;
+    count++;
+    console.log(count)
+};
+updateCount();
+console.log(count);

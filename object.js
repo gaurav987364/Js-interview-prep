@@ -136,7 +136,7 @@ console.log(newObj2);
 
 
 // Adding a Method to a Constructor
-// You cannot add a new method to an object constructor function.
+//? You cannot add a new method to an object constructor function.
 
 // This code will produce a TypeError:
 
