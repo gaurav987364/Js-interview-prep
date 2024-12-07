@@ -412,3 +412,16 @@ console.log("End");
 // Async/Await logs "Async/Await" after the Promise callback.
 
 // setTimeout callback runs last as it is a macrotask.
+
+
+//eg function to test time
+const mysumfunction = (a,b)=>{
+    return a+b
+};
+//! How to measue the time taken by the function to execute ?
+
+//?=> we have 2 method for this one is typical Date() methods. And other one  is the js build in time and timelog method.
+
+console.time("Time taken"); // isko unique string deni hoti hai
+console.log(mysumfunction(10,5));
+console.timeLog("Time taken"); // acces usnique string
