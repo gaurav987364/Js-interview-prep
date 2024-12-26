@@ -134,4 +134,142 @@ const pasteBtn = document.getElementById('paste');
  pasteBtn.addEventListener('click', pasteText);
 
 
- 
+///! Random shuffle Array best practices
+
+//? method-1
+
+const array1 = [1, 2, 3, 4, 5];
+const results = array1.sort(()=>Math.random() * -0.5);
+console.log(results);
+
+//? method-2 (in perspective of memory game)
+
+const emoji = ["🎮","🥻","👗","🐦‍⬛","🪼","🦐","👻"];
+//? is method se proper shuffle hoga or undefined create nhi hoga kisi bhi index par
+const shuffleArrayFunc = ()=>{
+    const arrayCopy = [...emoji,...emoji]; // double the array
+    const currentIndex = arrayCopy.length; // get length;
+
+    while(currentIndex !== 0){
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--; // doing for previous se kam k liye
+
+        [arrayCopy[currentIndex], arrayCopy[randomIndex]] = [arrayCopy[randomIndex],arrayCopy[currentIndex]];
+    }
+    return arrayCopy;
+};
+console.log(shuffleArrayFunc());
+
+
+//! generating random gameBoard or nested numbers array
+let GameType = "4x4" | "6x6";
+
+function generateRandomBoard(){
+    let ROWS;
+    let COLS;
+
+    //? assign the values 
+    if(ROWS === "4x4"){
+        ROWS = 4;
+        COLS = 4;
+    } else{
+        ROWS = 6;
+        COLS = 6;
+    };
+
+    const board = []; // simplye creting emppty array
+    for(let i=0;i<ROWS;i++){
+        board.push([]); // pusing empty array based on number of rows
+        for(let j=0; j<COLS;j++){
+            board[i].push(0);
+        }
+    }
+    // return board; // when we do this we get
+    // [
+    //     [
+    //         0,0,0,0,
+    //         0,0,0,0,
+    //         0,0,0,0,
+    //         0,0,0,0
+    //     ],
+    //     [
+    //         0,0,0,0,
+    //         0,0,0,0,
+    //         0,0,0,0,
+    //         0,0,0,0
+    //     ],
+    //     [
+    //         0,0,0,0,
+    //         0,0,0,0,
+    //         0,0,0,0,
+    //         0,0,0,0
+    //     ],
+    //     [
+    //         0,0,0,0,
+    //         0,0,0,0,
+    //         0,0,0,0,
+    //         0,0,0,0
+    //     ],
+
+    // ]
+
+    //but we want 
+    return insertRandomNumbers(board);
+};
+
+function insertRandomNumbers(board){
+    const computedBoard = board;
+    let NUMB_OF_SPOTS;
+    let MAX_NUMBERS;
+
+    if(computedBoard.length === 4){
+        NUMB_OF_SPOTS = 16;
+        MAX_NUMBERS = 4;
+    } else{
+        NUMB_OF_SPOTS = 36;
+        MAX_NUMBERS = 6;
+    };
+
+    //creating random empty object
+    const randomSpots = {};
+
+
+    //logic of filling object
+    while(true){
+        if(Object.keys(randomSpots).length === NUMB_OF_SPOTS){
+            break;
+        }
+         //getting the values of x,y on random keys
+            const x = Math.floor(Math.random() * MAX_NUMBERS);
+            const y = Math.floor(Math.random() * MAX_NUMBERS);
+            const randomSpotsKey = Math.random();
+
+        if(!Object.values(randomSpots).find((val)=>val.x === x && val.y === y)){
+            randomSpots[randomSpotsKey] = {x,y};
+        }
+    };
+
+    //some more part
+    //? now finally fulfilled our array with object key values pairs
+    let counter = 2;
+    let currentNumber = 1;
+
+    Object.values(randomSpots).forEach((spot)=>{
+        computedBoard[spot.x][spot.y] = currentNumber; // filling the board
+        counter--;
+        if(counter === 0){
+            counter = 2;
+            currentNumber++;
+        }
+    });
+    return computedBoard;
+};
+
+
+
+//? coding question
+
+[a] = [2,3,4,5];
+console.log(a); //? guess the output
+
+// so the result is 2 by doing this we simply get the first value or our index of array and [a] is assign to window object  like var [a] = 2; ok;
