@@ -66,10 +66,10 @@ const objToPrvents = {
     }
 };
 
-//Object.freeze(objToPrvents); //Prevents the modification of existing property attributes and values, and prevents the addition of new properties.
+Object.freeze(objToPrvents); //Prevents the modification of existing property attributes and values, and prevents the addition of new properties.
 //console.log(Object.isFrozen(objToPrvents))
 
-Object.seal(objToPrvents); // pvents add or deleet property ob obj.
+Object.seal(objToPrvents); // pvents add or delete property ob obj.
 objToPrvents.newprop = "gauarav";
 console.log(objToPrvents, Object.isSealed(objToPrvents)) // true
 

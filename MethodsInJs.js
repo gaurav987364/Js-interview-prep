@@ -273,3 +273,27 @@ function insertRandomNumbers(board){
 console.log(a); //? guess the output
 
 // so the result is 2 by doing this we simply get the first value or our index of array and [a] is assign to window object  like var [a] = 2; ok;
+
+
+
+//
+function spread(...args){
+    return [...args];
+};
+console.log(spread(1,2,3,4,5,"hi","hello"))
+
+
+const o = {
+    ["name"]:"Gaurav",
+    age: 25,
+    location: "Delhi",
+    [Symbol("key")]: "value"  //symbol is used for private properties in js
+};
+o.name = "Vikky"
+o.Symbol = "sex" // created a symbol key and value as sex 
+//? is js object if koi property phele se object me nahi hai hai to hm simple usko bhar se add kr skte hai vo ho jaiti hai but only in normal objects not in constructor ok;
+
+for(key in o){
+    console.log(key, o[key]); //output will be name, Vikky, age, 25, location, Delhi, Symbol(key), value
+}
+console.log(res);
