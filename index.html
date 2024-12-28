@@ -122,6 +122,8 @@
   <button id="copy">Copy Text</button> 
   <button id="paste">Paste Text</button>
 
+  <button id="detect" onclick="detect(event)">Detect click</button>
+
   <script>
     let startTime = null;
     let elapsedTime = 0;
@@ -165,6 +167,18 @@
       clearInterval(timerInterval);
       timeDisplay.textContent = "00:00:00.000";
     });
+
+
+
+
+    function detect(event){
+      //? isTrusted is read only property  which gives us info about user or browser click
+     if(event.isTrusted){
+       console.log('Event is trusted: User clicks');
+     } else {
+      console.log("scripts click")
+     }
+    }
   </script>
   <!-- <script src="MethodsInJs.js"></script> -->
 </body>

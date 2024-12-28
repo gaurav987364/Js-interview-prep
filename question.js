@@ -51,3 +51,19 @@ function updateCount() {
 };
 updateCount();
 console.log(count);
+
+
+
+//? ola interview question senario based html+js
+//* you have one button which have one onClick function name detect(event) and we pass one event to it and we are simply make this function in our js code.
+
+// Now it is our task to detect the click by user or any browser scripts
+document.querySelector("button#detect").click();
+// so we simple do like this
+function detect(event) {
+    if(event.isTrusted){
+        console.log('clicked by user');
+    } else{
+        console.log('clicked by browser script');
+    }
+}
