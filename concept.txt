@@ -11,6 +11,12 @@ Arithmetic operators: +, -, *, /, %, **
 Comparison operators: ==, ===, !=, !==, >, <, >=, <=
 Logical operators: &&, ||, !
 Assignment operators: =, +=, -=, *=, /=, etc.
+
+Comma Operator
+let numb = (1,2,3,4,5);
+console.log(numb) // 5 return the end value only because comma operatorworks from left to right;
+
+
 Type Coercion and Conversion
 Template Literals
 Control Flow
