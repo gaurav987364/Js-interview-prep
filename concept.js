@@ -425,3 +425,97 @@ const mysumfunction = (a,b)=>{
 console.time("Time taken"); // isko unique string deni hoti hai
 console.log(mysumfunction(10,5));
 console.timeLog("Time taken"); // acces usnique string
+
+//function for find average
+function findAvg(num){
+    let total = null;
+    for(let i=0;i<num.length;i++){
+        total += num[i]
+    };
+    return total/num.length
+};
+console.log(findAvg([1,2,3,4,5]));
+
+
+//! PollyFills of the functions;
+//? polyfills are the piece of code that provide modern functionality on older browsers that dont support them; Basically provide the modern features so that your code runs on every browser;
+
+const array = [1,2,3,4,5,6,7,8,9,10];
+// const results = array.map((item)=>(
+//     console.log(item)
+// ));
+// console.log(results);
+
+
+Array.prototype.myMap = function (items) {
+    const returnArray = [];
+    for(let i=0;i<this.length;i++){ //? taking this from the surrounding like from that array[];
+        returnArray.push(items(this[i],i,this));
+        //?  this[i] => current item of array;
+        //?  i => currecnt index or array
+        //?  this => our whole array;
+        // console.log(items);
+        // console.log(items(this[i]));
+        // console.log(i);
+        // console.log(this);
+    };
+    return returnArray;
+};
+const res = array.myMap((item)=>{
+    return console.log(item);
+});
+console.log(res);
+
+
+
+//filter
+Array.prototype.myFilter = function (callback){
+    const filterArray = [];
+    for(let i=0;i<this.length;i++){
+        if(callback(this[i],i,this)){
+            filterArray.push(this[i]); //? push only current element
+        }
+    };
+    return filterArray;
+};
+const rs = vr.myFilter((item)=> item % 2 === 0);
+console.log(rs);
+
+//Reduce method
+array.reduce((calback,initialValue)=>{
+    return calback + initialValue;
+},0);
+
+
+
+//custom reduce
+Array.prototype.myReduce = function (cb, ival) {
+    // Check for empty array and no initial value
+    if (this.length === 0 && ival === undefined) {
+      throw new TypeError("Reduce of empty array with no initial value");
+    }
+  
+    // Initialize accumulator
+    let accumulator = ival !== undefined ? ival : this[0]; //  ya to value aayi to use kro varna array me se uska first index leleo
+  
+    // Initialize starting index
+    let startIndex = ival !== undefined ? 0 : 1;
+  
+    // Iterate over each element
+    for (let i = startIndex; i < this.length; i++) {
+      accumulator = cb(accumulator, this[i], i, this);
+    }
+    
+    // Return the accumulated value
+    return accumulator;
+  };
+  
+  // Example usage
+  const newArr = [1, 2, 3, 4, 5];
+  const rst = newArr.myReduce((accum, curr) => {
+    return accum + curr;
+  }, 0);
+  console.log(rst); // Output: 15
+  
+//! practice ke liye make polyfills of 
+// find, some, every, slice, splice, sort, Set, etc array methods and also some of Object methods also 
