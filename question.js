@@ -209,4 +209,17 @@ console.log(getInfo.apply(objt,[24,"react.js Dev"]));
 
 const bindFunc = getInfo.bind(objt);
 console.log(bindFunc)// we get function body ;
-console.log(bindFunc(24,"Hero"))
+console.log(bindFunc(24,"Hero"));
+
+
+// question based on object;
+
+const object = {
+    count:1,
+    increament: function(){
+        return ++this.count;
+    }
+};
+const inc = object.increament;
+console.log(inc()); // NaN
+console.log(object.increament()); // 2
