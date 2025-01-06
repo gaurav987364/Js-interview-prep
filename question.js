@@ -223,3 +223,5 @@ const object = {
 const inc = object.increament;
 console.log(inc()); // NaN
 console.log(object.increament()); // 2
+
+
