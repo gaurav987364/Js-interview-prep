@@ -224,4 +224,57 @@ const inc = object.increament;
 console.log(inc()); // NaN
 console.log(object.increament()); // 2
 
+//! Find a factorial of number handel edge case also of 0 and negatives write function
 
+function getFactorial(num){
+    if(num <=0) return;
+    let result = 1; // 1 isliye ki factorila 1 hi hoge iske
+
+    for(let i=1; i<=num; i++){
+        result *= i;
+    }
+    return result;
+};
+
+
+// Write function for find the greates divisor;
+// greatest divisor means in two number divide properly without having 0  as remainder
+// we use the ecludain algorithm to find that
+
+function getGreatestDivisor(n1,n2){
+    // make sure both number are integers
+     n1 = Math.abs(n1);
+     n2 = Math.abs(n2);
+
+    // edge case 
+    if(n1===0 || n2===0) return 0;
+    while(n2 !== 0){
+        let temp = n2;
+        n2 = n1 % n2;
+        n1 = temp;
+    }
+    return n1;
+}
+console.log(getGreatestDivisor(2,4)); //2
+
+
+//? write a function for find the fibonacci sequence and handel edge case also;
+
+// Fibonacci sequence means every numbers in a series are the sum of next number means 0,1 = 0+1 = 1 hota hai ok to in series me 0,1,1,2,3,5,8,13,21 ...
+
+function fibonacciSequence(numb){
+    // cheak if number is non-negative
+    if(typeof numb!== "number" ||  numb<0 || !Number.isInteger(numb)){
+        return "Invalid input, please enter a non-negative integer.";
+    }
+    //edge case 
+    if(numb === 0) return [];
+    if(numb === 1) return [0];
+
+    let fibSequence = [0,1];
+    //? hm 2 index se loop start kr rhe hai kyui hmne o,1 ka edge case me handel krliya hai;
+    for (let i = 2; i < numb; i++) {
+        fibSequence.push(fibSequence[i - 1] + fibSequence[i - 2]);
+    }
+    return fibSequence;
+}
