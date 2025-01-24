@@ -277,4 +277,14 @@ function fibonacciSequence(numb){
         fibSequence.push(fibSequence[i - 1] + fibSequence[i - 2]);
     }
     return fibSequence;
+};
+
+
+
+// Q: count the duplicates in the string;
+
+function countCharacters(str){
+    let charCount = {};
+   
+    return charCount;
 }
