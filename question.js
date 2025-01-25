@@ -283,8 +283,17 @@ function fibonacciSequence(numb){
 
 // Q: count the duplicates in the string;
 
-function countCharacters(str){
+function charCount(str){
     let charCount = {};
-   
+    for(let char of str) {
+        if(charCount[char]) {
+            charCount[char] += 1;
+        } else {
+            charCount[char] = 1;
+        } 
+    }
     return charCount;
-}
+};
+
+console.log(charCount('Hello!'));
+ // Output: { H: 1, e: 1, l: 3, o: 2, ' ': 1, W: 1, r: 1, d: 1, '!': 1 }
