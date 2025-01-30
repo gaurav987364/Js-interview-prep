@@ -297,3 +297,17 @@ function charCount(str){
 
 console.log(charCount('Hello!'));
  // Output: { H: 1, e: 1, l: 3, o: 2, ' ': 1, W: 1, r: 1, d: 1, '!': 1 }
+
+
+// check string are anagrams simple way; (both stringcarry same charcter);
+
+function checkAnagrams(str1,str2){
+    const sortedStr1 = str1.split("").sort().join("");
+    const sortedStr2 = str2.split("").sort().join("");
+
+    if(sortedStr1.length == sortedStr2.length){
+        return sortedStr1 === sortedStr2;
+    } else {
+        return false;
+    }
+};
