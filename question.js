@@ -311,3 +311,26 @@ function checkAnagrams(str1,str2){
         return false;
     }
 };
+
+// checkAnagrams("listen","silent"); // true
+
+//Tips of Objects
+
+//rest operator
+
+//? we  can only use rest operators in the last parameter of the function (not in the middle and start);
+
+function sendEmail(to,subject,...args){
+    console.log(to,subject,args);
+};
+sendEmail("gaurav","Hello","How are you","I am fine");
+
+const myobjt = {
+    name:"gaurav",
+    age:24,
+    proff:"Developer"
+};
+
+//? now our task is that we have to stringyfy only some key not all like dont stringfy age key;
+const notSTringfy = ["age"];
+console.log(JSON.stringify(myobjt,notSTringfy));
