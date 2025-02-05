@@ -334,3 +334,17 @@ const myobjt = {
 //? now our task is that we have to stringyfy only some key not all like dont stringfy age key;
 const notSTringfy = ["age"];
 console.log(JSON.stringify(myobjt,notSTringfy));
+
+
+
+//Debounce function
+
+function Debounce(func,time){
+    let timer = null;
+    if(timer !== null){
+        clearTimeout(timer);
+    };
+    timer = setTimeout(() => {
+        func(...args);
+    }, time);
+}
