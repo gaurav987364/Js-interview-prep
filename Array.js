@@ -318,3 +318,9 @@ const scores = [70, 85, 90, 100];
 const allPassing = scores.every(score => score >= 50);
 
 console.log(allPassing); // Output: true (because all scores are 50 or above)
+
+
+//array tips and shortcut;
+
+const arrrrrr = [1,2,3,"", null, undefined,[],{},false].filter(Boolean);
+console.log(arrrrrr);
