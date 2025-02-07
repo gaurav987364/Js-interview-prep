@@ -216,3 +216,12 @@ console.log(JSON.parse(JSON.stringify(obj))); // this deep copy
 
 obj.name = "harry"
 console.log(obj);
+
+
+
+//destucturing based question
+
+const value = {a:"JS"};
+const {a, a:b, a:c} = value;
+console.log(a,b,c);
+//JS Js JS for all

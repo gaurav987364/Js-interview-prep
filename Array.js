@@ -324,3 +324,11 @@ console.log(allPassing); // Output: true (because all scores are 50 or above)
 
 const arrrrrr = [1,2,3,"", null, undefined,[],{},false].filter(Boolean);
 console.log(arrrrrr);
+
+
+console.log([..."Gaurav"]); //['G', 'a', 'u', 'r', 'a', 'v']
+//de-structure based qusestion
+
+const array = [1,2,3,4];
+let [ka] = array;
+console.log(ka); //1

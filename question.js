@@ -348,3 +348,17 @@ function Debounce(func,time){
         func(...args);
     }, time);
 }
+
+
+//count vowel new way
+function countVowel(str){
+    const vowels = "aeiouAEIOU";
+    let count = 0;
+    for(let char of str){
+        if(vowels.includes(char)){
+            count++;
+        }
+    };
+    return count;
+};
+console.log(countVowel("Hello World"));
