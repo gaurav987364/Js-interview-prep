@@ -225,3 +225,15 @@ const value = {a:"JS"};
 const {a, a:b, a:c} = value;
 console.log(a,b,c);
 //JS Js JS for all
+
+
+const data = {
+    step1 : {
+        subStep : {
+            name : ["john", "harry"],
+        }
+    }
+};
+
+const { step1: { subStep: { name } } } = data;
+console.log(step1);
