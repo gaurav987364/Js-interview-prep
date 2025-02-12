@@ -362,3 +362,15 @@ function countVowel(str){
     return count;
 };
 console.log(countVowel("Hello World"));
+
+
+//Get cordinates function
+const getCordinates =async ()=>{
+    const location = new Promise((res,rej)=>{
+        navigator.geolocation.getCurrentPosition(res,rej);
+    });
+    return {
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude
+    }
+};
