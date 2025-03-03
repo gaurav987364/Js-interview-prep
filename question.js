@@ -377,3 +377,16 @@ const getCordinates =async ()=>{
 
 
 //
+function countWords(str){
+    const words = str.match(/\b\w+\b/g);
+    if(!words) return 0;
+    return words? words.length : 0;
+};
+console.log(countWords("Hello World")); //2
+
+function countLetters(str){
+    const letters = str.match(/[a-zA-Z]/g);
+    if(!letters) return 0;
+    return letters? letters.length : 0;
+};
+console.log(countLetters("Hello World")); //11
