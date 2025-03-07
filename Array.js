@@ -332,3 +332,4 @@ console.log([..."Gaurav"]); //['G', 'a', 'u', 'r', 'a', 'v']
 const array = [1,2,3,4];
 let [ka] = array;
 console.log(ka); //1
+
