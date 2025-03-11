@@ -237,3 +237,10 @@ const data = {
 
 const { step1: { subStep: { name } } } = data;
 console.log(step1);
+
+
+// question
+let obj;
+obj = {a:{b:undefined}};
+console.log(obj.a?.b?.c,"X");
+// we get undefined for obj.a?.b?.c so after undefined we get "X" answer;
