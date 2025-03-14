@@ -1,9 +1,10 @@
-var x;
+"use strict";
+let x;
 x = 20;
 console.log(x);
 //q1:: get the nth element of a (array)
 // qrite a function that take array a and n as element argument?
-var getNthElement = function (arr, n) {
+const getNthElement = (arr, n) => {
     if (n < 1 || n > arr.length) {
         return undefined;
     }
@@ -13,7 +14,7 @@ var getNthElement = function (arr, n) {
 // console.log(getNthElement([10, 9, 8, 7, 6], 5));
 // console.log(getNthElement([7, 2, 1, 6, 3], 1));
 //q2: count the array elemets?
-var countArrayElements = function (arr) {
+const countArrayElements = (arr) => {
     return arr.length;
 };
 //q3 get last 3 character of nth elememnt of the string ?writea function that take string as argument and return last 3 characters ?
