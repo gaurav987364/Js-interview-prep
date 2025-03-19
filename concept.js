@@ -416,7 +416,7 @@ console.log("End");
 
 //eg function to test time
 const mysumfunction = (a,b)=>{
-    return a+b
+    return a+b;
 };
 //! How to measue the time taken by the function to execute ?
 
