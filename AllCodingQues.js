@@ -41,3 +41,29 @@ function median(arr){
 
 let arr = [3, 1, 2, 4, 5];
 console.log(median(arr)); // output: 3
+
+
+//? Object me sirf ham as a Keys me sirf strings or symbols hi assign kar skte hai  or kuch nhai like {} khud ek object ko kisi objetc me as a key assign nahi kr skte agar ye krnaa hai to hame new Map() ka use krna hoga
+
+let a = {};
+let b = { key: "a"};
+let c = { key: "b"};
+
+a[b] = "Hi";
+a[c] = "Hello";
+console.log(a[b]); // output: Hello
+
+console.log(+true); //1
+console.log(!"false"); //false
+
+
+//differnce bw map vs forEach
+//map() returns a new array with the results of calling a provided function on every element in the calling array.
+//forEach() executes the provided function once for each array element.
+
+let arraayy = [1,2,3,4,5];
+
+let newArray = arraayy.map((ele) => ele*2);
+console.log(newArray); // output: [2,4,6,8,10]
+
+arraayy.forEach((ele) => console.log(ele)); // output: 1, 2, 3, 4, 5
