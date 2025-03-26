@@ -213,3 +213,16 @@ function calculatePercentage(part, whole) {
 }
 console.log(calculatePercentage(50, 200)); // Output: "25.00%"
 console.log(calculatePercentage(75, 0));   // Output: "N/A"
+
+
+
+// thirty minutes from now 
+function thirtyMinutesFromNow(){
+    return new Date(date.now() + 30*24*60*60*1000);
+}
+// console.log(thirtyMinutesFromNow());
+
+//generate token 
+function generateToken(){
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+}
