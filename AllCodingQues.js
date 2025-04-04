@@ -67,3 +67,40 @@ let newArray = arraayy.map((ele) => ele*2);
 console.log(newArray); // output: [2,4,6,8,10]
 
 arraayy.forEach((ele) => console.log(ele)); // output: 1, 2, 3, 4, 5
+
+
+//object realted question
+let arrar = [
+    ["name", "John"],
+    ["age", 30],
+    ["city", "New York"]
+];
+let obj = Object.fromEntries(arrar); //? Converts an array of key-value pairs into an object
+console.log(obj); // output: { name: 'John', age: 30, city: 'New York' }
+
+
+//Q what are proxy in js?
+//? A Proxy is an object that wraps another object (target object) or function and intercepts operations on it, allowing you to define our custom (methods) behavior for fundamental operations (e.g., property lookup, assignment, enumeration, function invocation, etc.).
+
+
+const target = {
+    message: "Hello, World!"
+};
+const handler = {
+    get:()=>{
+        return "Hello, Proxy!";
+    },
+    set:()=>{
+        console.log("Property set!");
+        return true;
+    }
+};
+const proxy = new Proxy(target, handler);
+console.log(proxy.message); // output: Hello, Proxy!
+proxy.message = "New message"; // output: Property set!
+
+
+// find factorial of a number using recursion?
+function factorialByRecursion(n){
+    return n * factorialByRecursion(n-1);
+}
