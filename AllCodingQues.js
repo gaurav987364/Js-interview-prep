@@ -103,4 +103,17 @@ proxy.message = "New message"; // output: Property set!
 // find factorial of a number using recursion?
 function factorialByRecursion(n){
     return n * factorialByRecursion(n-1);
-}
+};
+// console.log(factorialByRecursion(5)); // output: 120
+
+
+//question based on function arguments passing
+function sums(a=5,b=5){
+    console.log(a+b); // output: 10
+};
+sums();// agar hm kuch pass nahi krege to default value use hogi jo ki 5 hai or output ayga ok 
+
+sums(10,20); // output: 30
+// ** But agar hm null pass krege to default value use nahi hogi or output ayga 5+null = 5
+//* sirf undefined pass krege to bhi defualt value use hogi
+sums(undefined,10);

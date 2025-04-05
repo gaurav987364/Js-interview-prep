@@ -47,10 +47,16 @@ Objects
 Object Literals and Properties
 Accessing and Modifying Properties
 Object Methods:
-Object.keys, Object.values, Object.entries
+Object.keys, Object.values,Object.fromEntries, Object.entries
 Destructuring and Nested Destructuring
 Object Spread and Rest
-Closures and Scope
+Closures and Scope :{
+    1.function Scope
+    2.global Scope
+    3.blocked Scope
+    4. module sccope
+    5.Lexical scope
+}
 
 Global, Function, Block Scope
 Lexical Scope and Closure
@@ -61,6 +67,7 @@ Callback Functions
 Higher-Order Functions
 Function Currying
 Function Composition
+Function composition in JavaScript is a powerful technique that allows you to combine multiple functions into a single function. This can make your code more modular and easier to read.
 Asynchronous JavaScript
 
 Callbacks and Callback Hell
@@ -102,8 +109,11 @@ Asynchronous Programming and Event Loop
 
 Event Loop, Call Stack, Microtasks, and Macrotasks
 setTimeout, setInterval, and clearInterval
-Promise.all, Promise.race, Promise.any, and Promise.allSettled
-Expert Level Concepts
+Promise.all, Promise.race, Promise.any, and Promise.allSettled;
+
+🚀🚀🚀
+Expert Level Concepts;-
+
 JavaScript Design Patterns
 
 Singleton Pattern
