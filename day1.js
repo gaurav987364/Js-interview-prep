@@ -164,4 +164,4 @@ console.log(null == null) // true
 console.log({} == 0) // false
 console.log([] == 0) // true
 console.log(Object.is(NaN, NaN)) // true
-console.log({} == {}) // fale
+console.log({} == {}) // false
