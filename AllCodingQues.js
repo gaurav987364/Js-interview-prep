@@ -117,3 +117,10 @@ sums(10,20); // output: 30
 // ** But agar hm null pass krege to default value use nahi hogi or output ayga 5+null = 5
 //* sirf undefined pass krege to bhi defualt value use hogi
 sums(undefined,10);
+
+
+//? Short-circuiting in js;   && ||
+console.log('Hi' && true && 0n && 50); // 0n
+console.log("Ok" && true && 0===0 && "Done...") // Done...
+console.log(false || "Hmm" || {} || undefined); //Hm
+console.log(false || null || 0 || undefined) //undefined
