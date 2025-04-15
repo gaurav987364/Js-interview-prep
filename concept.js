@@ -519,3 +519,15 @@ Array.prototype.myReduce = function (cb, ival) {
   
 //! practice ke liye make polyfills of 
 // find, some, every, slice, splice, sort, Set, etc array methods and also some of Object methods also 
+
+// call polyfil
+Function.prototype.myCall = function(context={}, ...args){
+    if(typeof this !== "function"){
+        throw new Error("Not Callable.")
+    }
+
+    context.fn = this;
+    const result = context.fn(...args)
+    delete context.fn;
+    return result;
+}
