@@ -327,7 +327,7 @@ console.log(arrrrrr);
 
 
 console.log([..."Gaurav"]); //['G', 'a', 'u', 'r', 'a', 'v']
-//de-structure based qusestion
+//de-structure based qusestion;;
 
 const array = [1,2,3,4];
 let [ka] = array;
