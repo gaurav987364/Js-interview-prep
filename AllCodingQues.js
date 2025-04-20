@@ -124,3 +124,10 @@ console.log('Hi' && true && 0n && 50); // 0n
 console.log("Ok" && true && 0===0 && "Done...") // Done...
 console.log(false || "Hmm" || {} || undefined); //Hm
 console.log(false || null || 0 || undefined) //undefined
+
+var y = 1;
+if(function f(){}){
+    y += typeof f;
+}
+console.log(y) //1undefined
+// because if() block ka code alag context me execute hota hai
