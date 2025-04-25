@@ -129,5 +129,5 @@ var y = 1;
 if(function f(){}){
     y += typeof f;
 }
-console.log(y) //1undefined
+console.log(y); //1undefined
 // because if() block ka code alag context me execute hota hai
