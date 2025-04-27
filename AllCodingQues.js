@@ -131,3 +131,15 @@ if(function f(){}){
 }
 console.log(y); //1undefined
 // because if() block ka code alag context me execute hota hai
+
+
+
+// question convert string a.b.c.d.e into {a:{b:{c:{d:e}}}}
+function makeObject(str){
+    const strArr = str.split(".");
+    const result = strArr.reduceRight((acc,curr)=>({
+        [curr]:acc
+    }))
+    return result;
+};
+console.log(makeObject("a.b.c.d.e.f"));
