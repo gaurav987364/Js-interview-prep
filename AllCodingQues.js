@@ -143,3 +143,6 @@ function makeObject(str){
     return result;
 };
 console.log(makeObject("a.b.c.d.e.f"));
+
+
+// we can use  notification js api ;
